@@ -11,7 +11,7 @@ const formatInterval = function(interval) {
 module.exports = {
   bind: 'game_stats',
   handler: async function(message) {
-    const limit = textHelpers.getLimitFromMessage(message.content);
+    const limit = textHelpers.getLimitFromMessage(message.content, 10);
 
     const data = await database.getGameStatistics(limit);
     const table = new Table();
