@@ -1,6 +1,7 @@
 node_modules/
 .env
 sgs_bot.log
+graph.png
 
 # Vim shit
 [._]*.s[a-v][a-z]

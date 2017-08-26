@@ -5,7 +5,7 @@ const textHelpers = require('../lib/text_helpers');
 const Table = require('ascii-table');
 
 const handler = async function(message) {
-  const limit = textHelpers.getLimitFromMessage(message);
+  const limit = textHelpers.getLimitFromMessage(message, 10);
 
   const userId = await database.findOrCreateUser(message.author);
   const data = await database.getUserGameStatistics(userId, limit);
