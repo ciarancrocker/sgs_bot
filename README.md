@@ -45,3 +45,6 @@ Windows, send in a pull request with updated docs!
    in Postgres. Make sure the owner of the tables, sequences and roles is set
    appropriately for what you set in the env file.
 5. Start the bot with `node index.js` and pray.
+
+To test the bot with eslint run `npm run test`. This will run eslint over all the code. If you'd
+rather run this test and then launch the bot run `npm run dev` which will do this for you as well.

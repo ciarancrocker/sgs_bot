@@ -22,7 +22,7 @@ module.exports = {
     const targetUser = mentions[0].user;
 
     // argument 1 should be the limit
-    const limit = textHelpers.getLimitFromMessage(message.content);
+    const limit = textHelpers.getLimitFromMessage(message.content, 10);
     const userId = await database.findOrCreateUser(targetUser);
     const data = await database.getUserGameStatistics(userId, limit);
     const table = new Table();
