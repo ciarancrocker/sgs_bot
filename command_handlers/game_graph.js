@@ -19,7 +19,7 @@ module.exports = {
       toPlot[data[i].name] = [];
     }
     for (let i = 0; i < data.length; i++) {
-      let formated = data[i].time.hours + ':' + data[i].time.minutes);
+      let formated = data[i].time.hours + ':' + data[i].time.minutes;
       toPlot[data[i].name].push(formated);
     }
 
