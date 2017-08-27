@@ -4,10 +4,6 @@ require('moment-duration-format');
 const textHelpers = require('../lib/text_helpers');
 const plot = require('plotter').plot;
 
-const formatInterval = function(interval) {
-  return moment.duration(interval).format();
-};
-
 module.exports = {
   bind: 'game_graph',
   handler: async function(message) {
@@ -16,15 +12,15 @@ module.exports = {
       games = 9; // Limit for now because 10 seems to break things
     }
     const days = 30;
-  
     const data = await database.getGameGraph(games, days);
-  
-    var toPlot = {};
+
+    let toPlot = {};
     for (let i = 0; i < games; i++ ) {
       toPlot[data[i].name] = [];
     }
     for (let i = 0; i < data.length; i++) {
-      toPlot[data[i].name].push(data[i].time.hours + ':' + data[i].time.minutes);
+      let formated = data[i].time.hours + ':' + data[i].time.minutes);
+      toPlot[data[i].name].push(formated);
     }
 
     plot({
@@ -37,8 +33,8 @@ module.exports = {
         message.reply('', {
           file: 'graph.png'
         });
-      }
-    }); 
+      },
+    },);
   },
   help: 'Show game graph for the server',
 };
