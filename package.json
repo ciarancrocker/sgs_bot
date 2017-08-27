@@ -18,6 +18,8 @@
     "eslint-config-google": "^0.9.1"
   },
   "scripts": {
-    "test": "eslint ."
+    "test": "eslint .",
+    "dev": "eslint . ; node index.js",
+    "release": "node index.js"
   }
 }

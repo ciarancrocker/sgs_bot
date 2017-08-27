@@ -1,5 +1,4 @@
 const database = require('../lib/database');
-const moment = require('moment');
 require('moment-duration-format');
 const textHelpers = require('../lib/text_helpers');
 const plot = require('plotter').plot;
@@ -31,10 +30,10 @@ module.exports = {
       filename: 'graph.png',
       finish: function() {
         message.reply('', {
-          file: 'graph.png'
-        });
+          file: 'graph.png',
+        }, );
       },
-    },);
+    }, );
   },
   help: 'Show game graph for the server',
 };
