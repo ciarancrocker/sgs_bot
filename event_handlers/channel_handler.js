@@ -111,6 +111,7 @@ async function provisionTemporaryChannels(guild) {
  * @param {GuildMember} after - Member after the update
  */
 function handleVoiceStateUpdate(before, after) {
+  console.log(ch);
   // do renaming
   if (before.voiceChannelID != null) {
     updateChannel(

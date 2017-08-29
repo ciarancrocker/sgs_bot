@@ -11,10 +11,17 @@ const formatInterval = function(interval) {
 module.exports = {
   bind: 'self_stats',
   handler: async function(message) {
-    const limit = textHelpers.getLimitFromMessage(message.content, 10);
-
+    const param1 = message.content.split(' ')[1] || '10';
+    const param2 = message.content.split(' ')[2] || 10;
     const userId = await database.findOrCreateUser(message.author);
-    const data = await database.getUserGameStatistics(userId, limit);
+    let data = [];
+
+    if (isNaN(param1)) {
+      data = await database.getUserGameStatisticsString(userId, param1, param2);
+    } else {
+      data = await database.getUserGameStatistics(userId, parseInt(param1));
+    }
+
     const table = new Table();
     table.setHeading(['Rank', 'Game', 'Time Played']);
     for (let i = 0; i < data.length; i++) {
